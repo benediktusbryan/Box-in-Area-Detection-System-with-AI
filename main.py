@@ -179,6 +179,22 @@ def inference():
         pred = non_max_suppression(pred, 0.25, 0.45, classes=0, agnostic=False)
         for i, det in enumerate(pred):
             print("Run Inference")
+            
+            #init dict result variable
+            areaFillStatus ={
+                                "area 0": "0",
+                                "area 1": "0",
+                                "area 2": "0",
+                                "area 3": "0",
+                                "area 4": "0",
+                                "area 5": "0",
+                                "area 6": "0",
+                                "area 7": "0",
+                                "area 8": "0",
+                            }                
+            #calculate point location
+            pointLocation = calculateAreaFill(x1=770, y1=590, x2=1225, y2=975, xAxis=3, yAxis=3)
+
             if len(det):
                 print("Det")
 
@@ -192,24 +208,8 @@ def inference():
                     s += f"{n} {app.names[int(c)]}{'s' * (n > 1)}, "  # add to string
                 # app.data_inference = s
 
-                #init dict result variable
-                areaFillStatus ={
-                                    "area 0": "0",
-                                    "area 1": "0",
-                                    "area 2": "0",
-                                    "area 3": "0",
-                                    "area 4": "0",
-                                    "area 5": "0",
-                                    "area 6": "0",
-                                    "area 7": "0",
-                                    "area 8": "0",
-                                }                
-                #calculate point location
-                pointLocation = calculateAreaFill(x1=770, y1=590, x2=1225, y2=975, xAxis=3, yAxis=3)
-
                 # Write results
-                for *xyxy, conf, cls in reversed(det):
-                    
+                for *xyxy, conf, cls in reversed(det):                   
                     #inspection area fill for box
                     areaFillStatus = inspectAreaFill(cls=cls, classNumber=0, xyxy=xyxy, pointLocation=pointLocation, areaFillStatus=areaFillStatus)
 

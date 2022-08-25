@@ -106,6 +106,22 @@ def detect(save_img=False):
             save_path = str(save_dir / p.name)  # img.jpg
             txt_path = str(save_dir / 'labels' / p.stem) + ('' if dataset.mode == 'image' else f'_{frame}')  # img.txt
             gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
+            
+            #init dict result variable
+            areaFillStatus ={
+                                "area 0": "0",
+                                "area 1": "0",
+                                "area 2": "0",
+                                "area 3": "0",
+                                "area 4": "0",
+                                "area 5": "0",
+                                "area 6": "0",
+                                "area 7": "0",
+                                "area 8": "0",
+                            }                
+            #calculate point location
+            pointLocation = calculateAreaFill(x1=770, y1=590, x2=1225, y2=975, xAxis=3, yAxis=3)
+            
             if len(det):
                 # Rescale boxes from img_size to im0 size
                 det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
@@ -113,26 +129,10 @@ def detect(save_img=False):
                 # Print results
                 for c in det[:, -1].unique():
                     n = (det[:, -1] == c).sum()  # detections per class
-                    s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
-
-                #init dict result variable
-                areaFillStatus ={
-                                    "area 0": "0",
-                                    "area 1": "0",
-                                    "area 2": "0",
-                                    "area 3": "0",
-                                    "area 4": "0",
-                                    "area 5": "0",
-                                    "area 6": "0",
-                                    "area 7": "0",
-                                    "area 8": "0",
-                                }                
-                #calculate point location
-                pointLocation = calculateAreaFill(x1=770, y1=590, x2=1225, y2=975, xAxis=3, yAxis=3)
+                    s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string                
 
                 # Write results
-                for *xyxy, conf, cls in reversed(det):
-                    
+                for *xyxy, conf, cls in reversed(det):                    
                     #inspection area fill for box
                     areaFillStatus = inspectAreaFill(cls=cls, classNumber=0, xyxy=xyxy, pointLocation=pointLocation, areaFillStatus=areaFillStatus)
 
