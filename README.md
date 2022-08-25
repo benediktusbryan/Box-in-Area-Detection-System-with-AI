@@ -12,7 +12,7 @@ For training yolov7. Use this Google Collab https://colab.research.google.com/dr
 
 ##Result
 https://user-images.githubusercontent.com/52401633/186632539-b845d01d-f96a-41bf-add8-2b64a9741deb.mp4
-
+![image](https://user-images.githubusercontent.com/52401633/186638287-2885f699-564c-4936-afdc-eda304b0b545.png)
 
 Blue region is defined as empty area. Red region is defined as filled area.
 The algorithm to decide area is using center weight of the detected bounding box coordinate and compared to the defined 3x3 area.
@@ -43,6 +43,7 @@ For get result
 http://localhost:8000/hasil
 
 Example Response body
+
 {
   "area 0": "0",
   "area 1": "1",
