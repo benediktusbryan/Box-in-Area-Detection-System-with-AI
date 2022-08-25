@@ -1,16 +1,16 @@
-#Box-in-Area-Detection-System-with-AI
+# Box-in-Area-Detection-System-with-AI
 
 This system detect Box in 3x3 Areas. Furthermore this system can be integrated with AGV to carry the box.
 Using yolov7 for the AI. https://github.com/WongKinYiu/yolov7
 
-##Model
+## Model
 Download model1.pt then copy to main directory
 https://drive.google.com/file/d/12xcC1BRS2F1yNi9RrE6jnbL7Fe0_g9vU/view?usp=sharing
 
-##Training
+## Training
 For training yolov7. Use this Google Collab https://colab.research.google.com/drive/1jdXmSPX4GBePFuJJYKiIOMQo-iTjqzci?usp=sharing
 
-##Result
+## Result
 https://user-images.githubusercontent.com/52401633/186632539-b845d01d-f96a-41bf-add8-2b64a9741deb.mp4
 ![image](https://user-images.githubusercontent.com/52401633/186638287-2885f699-564c-4936-afdc-eda304b0b545.png)
 
@@ -26,7 +26,7 @@ Confusion matrix shows testing result that 100% accuracy for detecting box but 0
 ![results](https://user-images.githubusercontent.com/52401633/186635098-acd733e9-80d5-470f-ad12-475909b6f7ad.png)
 Precision from this model is 1.00 (maximum 1.00). The detected bounding box is always true. But Recall is 0.5 (maximum 1.00). From all boxes in the testing images, the model successfully detect. But for all person in the testing images, the model totally failed to detect.
 
-##Run
+## Run
 Open terminal
 
 cd Box-in-Area-Detection-System-with-AI
