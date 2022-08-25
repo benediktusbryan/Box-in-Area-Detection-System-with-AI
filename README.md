@@ -1,6 +1,6 @@
 # Box-in-Area-Detection-System-with-AI
 
-This system detect Box in 3x3 Areas. Furthermore this system can be integrated with AGV to carry the box.
+This system detect Box in 3x3 Areas with CCTV camera. Furthermore this system can be integrated with AGV to carry the box.
 Using yolov7 for the AI. https://github.com/WongKinYiu/yolov7
 
 ## Model
