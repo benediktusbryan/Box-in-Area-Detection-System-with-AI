@@ -1,4 +1,4 @@
-# Box-in-Area-Detection-System-with-AI
+# Box-in Area Detection System with AI
 
 This system detect Box in 3x3 Areas with CCTV camera. Furthermore this system can be integrated with AGV to carry the box.
 Using yolov7 for the AI. https://github.com/WongKinYiu/yolov7
@@ -29,21 +29,28 @@ Precision from this model is 1.00 (maximum 1.00). The detected bounding box is a
 ## Run
 Open terminal
 
+```
 cd Box-in-Area-Detection-System-with-AI
 python ./main.py
+```
 
 Open browser
 
 For streaming the camera
 
+```
 http://localhost:8000/mjpg
+```
 
 For get result
 
+```
 http://localhost:8000/hasil
+```
 
 Example Response body
 
+```
 {
   "area 0": "0",
   "area 1": "1",
@@ -55,3 +62,4 @@ Example Response body
   "area 7": "0",
   "area 8": "0"
 }
+```
